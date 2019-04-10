@@ -1,0 +1,19 @@
+import os
+import time
+
+import cv2
+
+def alter(path,object):
+    result = []
+    s = os.listdir(path)
+    count = 1
+    for i in s:
+        document = os.path.join(path,i)
+        img = cv2.imread(document)
+        img = cv2.resize(img, (100,128))
+        listStr = ['shetou', str(count)]
+        fileName = ''.join(listStr)
+        cv2.imwrite(object+os.sep+'%s.jpg' % fileName, img)
+        count = count + 1
+
+alter('C:/Users/19482/Desktop/wrr/tu/img/shetou1','C:/Users/19482/Desktop/wrr/tu/img/shetou1chuli')
